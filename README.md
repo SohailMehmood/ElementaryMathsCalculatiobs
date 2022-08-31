@@ -1,4 +1,4 @@
-# ConsoleApp3
+# ElementaryMathsCalculations
 
 Task 4: Ask for a number and print the sum of the numbers 1 to n. 
 
