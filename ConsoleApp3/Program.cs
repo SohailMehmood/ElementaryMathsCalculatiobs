@@ -1,62 +1,85 @@
 ﻿using System;
+using System.Collections.Generic;
 using MathsCalculations;
 
 
 namespace ConsoleApp3
 {
-    class Program
+    static class Program
     {
         public static void Main(string[] args)
         {
-            Sum sum = new Sum();
-            MultiSum multisum = new MultiSum();
-            Factorial factorial = new Factorial();
-            Multiplication multiplication = new Multiplication();
-
-            Console.WriteLine("Enter a program number");
-            string program = Console.ReadLine() ?? string.Empty;
-
-            switch (program)
+            if (args is null)
             {
-                case "1":
-                    string sumN = sum.SumToN();
-                    Console.WriteLine(sumN);
-                    break;
+                throw new ArgumentNullException(nameof(args));
+            }
 
-                case "2":
-                    string multisumN = multisum.MultiSumToN();
-                    Console.WriteLine(multisumN);
-                    break;
+            Calculation calculation = new();
 
-                case "3":
-                    Console.WriteLine("Please choose 1 for the sum or 2 for the factorial.");
-                    int c = Convert.ToInt32(Console.ReadLine());
-                    if (c == 1)
-                    {
-                        string sumNAgain = sum.SumToN();
-                        Console.WriteLine(sumNAgain);
-                    }
+            bool active = true;
 
-                    else if (c == 2)
-                    {
-                        string factorialN = factorial.FactorialToN();
-                        Console.WriteLine(factorialN);
-                    }
+            while (active)
+            {
+                List<string> list = new()
+                {
+                    "Program 1: Calculate the sum from 1 to the given number.",
+                    "Program 2: Calculate the sum of the multiples of 3 and 5 from 1 to the given number.",
+                    "Program 3: Choose whether to caluculate the sum or the factorial of a given number.",
+                    "Program 4: Print out a multiplication table up to 12 of the given number.",
+                    "Press number 5 to exit program."
+                };
+                list.ForEach(Console.WriteLine);
 
-                    else
-                    {
-                        Console.WriteLine("Sorry this is not a correct option!");
-                    }
-                    break;
+                Console.WriteLine("Enter a program number");
+                string program = Console.ReadLine() ?? string.Empty;
 
-                case "4":
-                    multiplication.MultiplicationToN();
+                switch (program)
+                {
+                    case "1":
+                        string sumN = Calculation.SumToNumber();
+                        Console.WriteLine(sumN);
+                        break;
 
-                    break;
+                    case "2":
+                        string multisumN = calculation.MultiSumToNumber();
+                        Console.WriteLine(multisumN);
+                        break;
 
-                default:
-                    Console.WriteLine("Not a prorgram");
-                    break;
+                    case "3":
+                        Console.WriteLine("Please choose 1 for the sum or 2 for the factorial.");
+                        int c = Convert.ToInt32(Console.ReadLine());
+                        if (c == 1)
+                        {
+                            string sumNAgain = Calculation.SumToNumber();
+                            Console.WriteLine(sumNAgain);
+                        }
+
+                        else if (c == 2)
+                        {
+                            string factorialN = calculation.FactorialToNumber();
+                            Console.WriteLine(factorialN);
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("Sorry this is not a correct option!");
+                        }
+                        break;
+
+                    case "4":
+                        calculation.MultiplicationToNumber();
+
+                        break;
+
+                    case "5":
+                        active = false;
+                        break;
+
+
+                    default:
+                        Console.WriteLine("Not a prorgram");
+                        break;
+                }
             }
         }
     }
