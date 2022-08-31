@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using MathsCalculations;
 
 
-namespace ConsoleApp3
+namespace ElementaryMathsProblems
 {
     static class Program
     {
