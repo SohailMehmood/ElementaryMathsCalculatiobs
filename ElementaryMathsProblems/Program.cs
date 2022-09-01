@@ -5,7 +5,7 @@ using MathsCalculations;
 
 namespace ElementaryMathsProblems
 {
-    static class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {
