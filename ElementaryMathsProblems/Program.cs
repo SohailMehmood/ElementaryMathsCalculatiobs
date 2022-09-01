@@ -14,8 +14,6 @@ namespace ElementaryMathsProblems
                 throw new ArgumentNullException(nameof(args));
             }
 
-            Calculation calculation = new();
-
             bool active = true;
 
             while (active)
@@ -41,7 +39,7 @@ namespace ElementaryMathsProblems
                         break;
 
                     case "2":
-                        string multisumN = calculation.MultiSumToNumber();
+                        string multisumN = Calculation.MultiSumToNumber();
                         Console.WriteLine(multisumN);
                         break;
 
@@ -56,7 +54,7 @@ namespace ElementaryMathsProblems
 
                         else if (c == 2)
                         {
-                            string factorialN = calculation.FactorialToNumber();
+                            string factorialN = Calculation.FactorialToNumber();
                             Console.WriteLine(factorialN);
                         }
 
@@ -67,7 +65,7 @@ namespace ElementaryMathsProblems
                         break;
 
                     case "4":
-                        calculation.MultiplicationToNumber();
+                        Calculation.MultiplicationToNumber();
 
                         break;
 

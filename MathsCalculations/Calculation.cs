@@ -18,7 +18,7 @@
             return "Total sum: " + sum;
         }
 
-        public string MultiSumToNumber()
+        public static string MultiSumToNumber()
         {
             Console.WriteLine("Enter the value of n :");
 
@@ -39,7 +39,7 @@
             return "Total sum: " + multisum;
         }
 
-        public string FactorialToNumber()
+        public static string FactorialToNumber()
         {
             
             Console.WriteLine("Enter the value of n :");
@@ -49,24 +49,22 @@
             int factorial = 1;
             for (int i = 1; i <= thirdEnteredValue; i++)
             {
-                factorial = factorial * i;
+                factorial *= i;
             }
 
             return "The Factorial is: " + factorial;
 
         }
 
-        public void MultiplicationToNumber()
+        public static void MultiplicationToNumber()
         {
             
             Console.WriteLine("Enter number to print table: ");
 
             int fourthEnteredValue = Convert.ToInt32(Console.ReadLine());
-            
-            int multiplicationTable = 1;
             for (int i = 1; i <= 12; i++)
             {
-                multiplicationTable = fourthEnteredValue * i;
+                int multiplicationTable = fourthEnteredValue * i;
                 Console.WriteLine("{0} X {1} = {2}", fourthEnteredValue, i, multiplicationTable);
             }
         }
