@@ -15,7 +15,7 @@
                 sum += i;
             }
 
-            return "Total sum: " + sum;
+            return $"Total sum: {sum}";
         }
 
         public static string MultiSumToNumber()
@@ -36,7 +36,7 @@
 
             }
 
-            return "Total sum: " + multisum;
+            return $"Total sum: {multisum}";
         }
 
         public static string FactorialToNumber()
@@ -52,7 +52,7 @@
                 factorial *= i;
             }
 
-            return "The Factorial is: " + factorial;
+            return $"The Factorial is: {factorial}";
 
         }
 
@@ -65,7 +65,7 @@
             for (int i = 1; i <= 12; i++)
             {
                 int multiplicationTable = fourthEnteredValue * i;
-                Console.WriteLine("{0} X {1} = {2}", fourthEnteredValue, i, multiplicationTable);
+                Console.WriteLine($"{fourthEnteredValue} X {i} = {multiplicationTable}");
             }
         }
 
