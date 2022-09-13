@@ -1,10 +1,36 @@
 # Universal Windows Platform
 - task: DotNetCoreCLI@2
   inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+    feedsToUse: 'select'
+    vstsFeed: 'd8213edb-cecf-45c7-8cb4-80f0ba0b345c/a2f3cdbb-dea4-4823-a525-c03075b28c07'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/*.csproj'
+    versioningScheme: 'byBuildNumber'
+- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: 'd8213edb-cecf-45c7-8cb4-80f0ba0b345c/a2f3cdbb-dea4-4823-a525-c03075b28c07'
+  inputs:
     command: 'pack'
     packagesToPack: 'MathsCalculations.csproj'
     versioningScheme: 'off'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
 - task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
