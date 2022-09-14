@@ -74,7 +74,7 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-    task: UseDotNert@2
+- task: UseDotNert@2
     inputs: 
       packageType: 'sdk'
       version: '6.x'
