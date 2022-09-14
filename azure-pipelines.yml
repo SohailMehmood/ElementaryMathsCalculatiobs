@@ -1,4 +1,8 @@
 # Universal Windows Platform
+- task: UseDotNert@2
+    inputs: 
+      packageType: 'sdk'
+      version: '6.x'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
@@ -73,11 +77,6 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-
-- task: UseDotNert@2
-    inputs: 
-      packageType: 'sdk'
-      version: '6.x'
 
 - task: VSBuild@1
   inputs:
